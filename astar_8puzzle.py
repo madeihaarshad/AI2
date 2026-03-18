@@ -82,8 +82,8 @@ def get_user_input():
         user_input = input("  Enter puzzle >> ").strip()
 
         if user_input == "":
-            initial = [1, 2, 3, 4, 0, 6, 7, 5, 8]
-            print("\n  Using default: 1 2 3 4 0 6 7 5 8")
+            initial = [1, 2, 3, 5, 0, 6, 4, 7, 8]  # ✅ UPDATED DEFAULT
+            print("\n  Using default: 1 2 3 5 0 6 4 7 8")
             return initial
 
         nums = user_input.split()
@@ -152,15 +152,6 @@ def a_star(initial_state):
     return [], [], 0, nodes_explored
 
 class GoalBasedPuzzleAgent:
-    """
-    Goal-Based Intelligent Agent for 8-Puzzle.
-    - Perceives the environment (puzzle state)
-    - Has a defined goal state
-    - Plans using A* with f(n) = g(n) + h(n)
-    - Selects best state at every step
-    - Displays full solution path and cost analysis
-    """
-
     def __init__(self, initial_state):
         self.initial_state = tuple(initial_state)
         self.goal_state    = GOAL_STATE
